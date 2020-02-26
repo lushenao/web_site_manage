@@ -1,6 +1,8 @@
 # 项目名称
-网站导航系统-Django框架
+网站导航系统
 
+
+![](https://img.shields.io/python/v3.8/drone.svg)
 
 项目概要
 ==
