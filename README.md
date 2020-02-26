@@ -60,14 +60,27 @@ _修改完保存退出_
  6、进入项目目录，删除web_site_manage/web_site_navigation/migrations下除了__init__.py以外的所有文件（__否则数据库无法正常创建表__）
  执行:  
  
- python manage.py makemigrations                       #检查数据库差异（同步），生成迁移文件（migrations）    
- python manage.py migrate                              #根据迁移文件生成对应的SQL语句            
- python3 manage.py runserver 服务器IP:8000 &            #后台启动程序  
+ python manage.py makemigrations                       ##检查数据库差异（同步），生成迁移文件（migrations）    
+ python manage.py migrate                              ##根据迁移文件生成对应的SQL语句     
+ python manage.py createsuperuser                      ##创建后台管理网页的管理员用户密码  
+ python manage.py runserver 服务器IP:8000 &             ##后台启动程序    
  
- *如有疑问或者更正的地方，请联系QQ183923316*  
+
+ 
+ 使用文档
+ ==
+ 1、浏览器输入服务器IP:8000即可访问  __（推荐使用google最新版本浏览器）__   
+ 
+ 2、浏览器输入服务器IP:8000/admin，或者点击页面管理员登录，即可后台管理系统   
+ 后台管理系统使用示例：  
+ 网站所属类：云平台运维  
+ 网站所属组：云平台监控系统  
+ 网站URL：ZABBIX系统；Alimonitor系统等  
+ 
+ -----------------------------------------------
+  *如有疑问或者更正的地方，请联系QQ183923316*  
  
  ___谢谢！___  
- 
  
 
 
