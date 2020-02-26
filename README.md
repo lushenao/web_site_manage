@@ -28,7 +28,7 @@ if version < (1, 3, 13):
  DATABASES = {  
     'default': {  
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'web_site_navigation',  ##数据库名字，必须先创建改名字的数据库  
+        'NAME': 'web_site_navigation',  ##___数据库名字，必须先创建该名字的数据库，否则系统报错___    
         'HOST':'192.168.227.199',       ##数据库IP  
         'PORT':3306,                    ##数据库端口  
         'USER':'root',                  ##数据库账号  
@@ -53,7 +53,11 @@ ALLOWED_HOSTS = ['*']
 _修改完保存退出_  
 
     
- 5、进入项目目录，执行python3 manage.py runserver 服务器IP:8000 &  
+ 6、进入项目目录，删除web_site_manage/web_site_navigation/migrations下除了__init__.py以外的所有文件（__否则数据库无法正常创建表__）
+ 执行
+ python manage.py makemigrations                #检查数据库差异（同步），生成迁移文件（migrations）  
+ python manage.py migrate                       #根据迁移文件生成对应的SQL语句            
+ python3 manage.py runserver 服务器IP:8000 &     #后台启动程序
  
  *如有疑问或者更正的地方，请联系QQ183923316*  
  
