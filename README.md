@@ -1,6 +1,10 @@
 # 项目名称
 网站导航系统
 
+![](https://img.shields.io/badge/language-python-orange.svg)
+![](https://img.shields.io/badge/Python-v3.8-red.svg?colorA=abcdef)
+![](https://img.shields.io/badge/Django-v3.0.3-blue.svg?colorA=abc)
+
 
 项目概要
 ==
@@ -54,15 +58,17 @@ _修改完保存退出_
 
     
  6、进入项目目录，删除web_site_manage/web_site_navigation/migrations下除了__init__.py以外的所有文件（__否则数据库无法正常创建表__）
- 执行
- python manage.py makemigrations                #检查数据库差异（同步），生成迁移文件（migrations）  
- python manage.py migrate                       #根据迁移文件生成对应的SQL语句            
- python3 manage.py runserver 服务器IP:8000 &     #后台启动程序
+ 执行:  
+ 
+ python manage.py makemigrations                       #检查数据库差异（同步），生成迁移文件（migrations）    
+ python manage.py migrate                              #根据迁移文件生成对应的SQL语句            
+ python3 manage.py runserver 服务器IP:8000 &            #后台启动程序  
  
  *如有疑问或者更正的地方，请联系QQ183923316*  
  
  ___谢谢！___  
  
  
+
 
 
