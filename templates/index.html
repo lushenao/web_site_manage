@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ web_site_name }}</title>
+<link rel="stylesheet" href="/static/css/web_site_navigation-index.css" />
+
+</head>
+<body>
+<!--整个导航页面开始-->
+<div id="app">
+
+    <!--    标题块开始-->
+    <div id="header">
+        <!--        网站标题开始-->
+        <img id="logo" src="/static/logo.png" border="0" alt="云嘉云计算">
+        <div id="title">
+            <span>{{ web_site_name }}</span>
+        </div>
+        <div style="clear: both"></div>
+        <!--        网站标题结束-->
+        <!--        管理员登录按钮开始-->
+        <div id="login">
+            <span class="login-span button"><a href="/admin" target="_blank"> 管理员登录</a></span>
+        </div>
+
+        <!--        管理员登录按钮结束-->
+
+    </div>
+    <!--    标题块结束-->
+
+    <!--    数据块开始-->
+    <div id="body">
+        <!--        导航栏开始-->
+        <div id="menu">
+            <!--            导航栏内容开始-->
+            <ul id="menu-content">
+                {% for c_row in web_class %}
+                    <li>
+
+                        <a id="web_class{{ c_row.cid }}" onclick="Display('c{{ c_row.cid }}')" class="menu button"
+                           data-cid="{{ c_row.cid }}">
+                            {{ c_row.class_name }}
+                            <div class="xs">
+                                <div class="xiao"></div>
+                                <ul>
+                                    {% for o_row in web_class_obj %}
+                                        {% if o_row.web_class_id == c_row.cid %}
+                                            <object >
+                                                <a href="#co{{ c_row.cid }}{{ o_row.oid }}" >
+                                                <li onclick="Point({{ c_row.cid }}{{ o_row.oid }})" class="option">{{ o_row.obj_name }}-{{ o_row.get_obj_environment_display }} </li>
+                                                </a>
+                                            </object>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </a>
+
+                    </li>
+                {% endfor %}
+
+            </ul>
+            <!--            导航栏内容结束-->
+        </div>
+        <!--        菜单1网址内容开始-->
+        {% for c_row in web_class %}
+            <div class="website">
+
+                <ul id="c{{ c_row.cid }}">
+
+                    {% for o_row in web_class_obj %}
+                        {% if o_row.web_class_id ==  c_row.cid %}
+                            <li id="co{{ c_row.cid }}{{ o_row.oid }}">
+                                <span>{{ o_row.obj_name }}-{{ o_row.get_obj_environment_display }}</span>
+                                <div class="separator"></div>
+                                {% for s_row in web_site %}
+                                    {% if s_row.web_class_obj_id ==  o_row.oid %}
+                                        <div id="s{{ s_row.id }}" class="link"><a class="url" target=‘_blank’
+                                                                                  href={{ s_row.site_url }}>{{ s_row.site_name }}</a>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <!--            返回顶部开始-->
+                <div class="go_top"><a href="#c{{ c_row.cid }}"><img style="opacity: 1" src="/static/go_top2.png"
+                                                                     height="38"
+                                                                     border="0"
+                                                                     alt=""></a>
+                </div>
+                <!--            返回顶部结束-->
+            </div>
+            <!--            菜单1网址内容结束-->
+        {% endfor %}
+
+    </div>
+
+<script src="/static/jquery.js"></script>
+<script type="text/javascript" src="/static/js/web_site_navigation-index.js">
+
+</script>
+<script>
+    $(document).ready(function () {
+        var content = document.getElementsByClassName("website")
+        for (var i = 0; i < content.length; i++) {
+            content[i].classList.add('hide')
+        }
+
+        var curr_content = document.getElementById('c{{ web_class.first.cid }}')
+        curr_content.parentElement.classList.remove('hide')
+
+
+    })
+            </script>
+</div>
+
+
+
+</body>
+</html>

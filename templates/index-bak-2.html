@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ web_site_name }}</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            position: relative;
+            height: 100%;
+        }
+
+        #header {
+            /*position: relative;*/
+            height: 90px;
+            line-height: 90px;
+            min-width: 800px;
+        }
+
+        #logo {
+            /*position: absolute;*/
+            float: left;
+            width: 38px;
+            height: 38px;
+            margin-left: 37.7%;
+            margin-right: 20px;
+            margin-top: 15px;
+
+        }
+
+        #title {
+            float: left;
+            height: 70px;
+            line-height: 70px;
+            font-size: 30px;
+            color: #2F4F4F;
+            /*min-width: 800px;*/
+
+
+        }
+
+        #login {
+            /*z-index: 10;*/
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            font-size: 5px;
+            text-align: right;
+
+            /*padding-right: 7.5%;*/
+            padding-top: 0px;
+            background-color: #EAF2D3;
+            color: #999;
+            min-width: 800px;
+        }
+
+        .login-span {
+            position: absolute;
+            right: 150px;
+        }
+
+        .login-span:hover {
+            color: #8E236B;
+            cursor: pointer;
+
+        }
+
+        .button {
+            /*display: inline-block;*/
+            /*-moz-user-select: none;*/
+            /*-ms-user-select: none;*/
+            /*-webkit-user-select: none;*/
+            /*user-select: none;*/
+            cursor: pointer
+        }
+
+        #body {
+            position: absolute;
+            bottom: 4%;
+            top: 90px;
+            width: 100%;
+            background-color: #eeeeee;
+            padding-top: 10px;
+            min-width: 800px;
+        }
+
+        #menu {
+            border: 1px solid #dfe2e5;
+            background-color: white;
+            min-width: 600px;
+            width: 95%;
+            height: 40px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+
+        #menu-content {
+            list-style-type: none;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            display: flex;
+            align-content: center;
+
+            /*float: left;*/
+
+        }
+
+        #menu-content ul {
+            text-align: center;
+            list-style-type: none;
+            padding-left: 0;
+            overflow: auto;
+
+        }
+
+        #menu-content li {
+
+
+        }
+
+        #menu-content li a {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 1s ease;
+            background-color: white;
+        {#background: linear-gradient(#0099CC,white);#}
+        }
+
+        #menu-content li a:hover {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 1s ease;
+
+            background-color: #0099CC;
+        {#background: linear-gradient(#0099CC,white);#}
+        }
+
+        #menu-content a:hover .xs {
+            /*display: block;*/
+            height: 200px;
+
+        }
+
+        {##menu-content li:nth-child(2) a:hover .xs {#}
+        {#    /*display: block;*/#}
+        {#    height: 160px;#}
+        {
+        #}#}
+        {##}
+        {##menu-content li:nth-child(3) a:hover .xs {#}
+        {#    /*display: block;*/#}
+        {#    height: 160px;#}
+        {
+        #}#}
+
+        .xs {
+            /*display: none;*/
+            overflow: hidden;
+            border: 0px solid #dfe2e5;
+            border-top: 0;
+            width: 200px;
+            background: #d2e9ff;
+            position: absolute;
+            left: 0px;
+            font-size: 10px;
+            text-align: center;
+            margin: 0 auto;
+            height: 0px;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 1s ease;
+
+
+        }
+
+        .xiao {
+            position: absolute;
+            top: -8px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #9acdff;
+            width: 0px;
+            height: 0px;
+            /*z-index: 999;*/
+
+        }
+
+        #menu li .xiao {
+            left: 45%;
+        }
+
+        #menu li:nth-child(1) .xs {
+            left: 0px;
+        }
+
+        #menu li:nth-child(2) .xs {
+            left: 200px;
+        }
+
+        #menu li:nth-child(3) .xs {
+            left: 400px;
+        }
+
+
+        .menu {
+            display: block;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #2C3E50;
+            width: 200px;
+        }
+
+        .website {
+            min-width: 800px;
+            width: 95%;
+            margin: 0 auto;
+            background-color: white;
+            height: 88%;
+            border: 1px solid #dfe2e5;
+            border-radius: 15px;
+            overflow-y: scroll;
+            margin-top: 10px;
+        }
+
+        .website ul {
+            list-style-type: circle;
+            color: #3299CC;
+            font-weight: bold;
+            padding-right: 40px;
+            margin-top: 0px;
+            padding-top: 16px;
+        }
+
+
+        .website ul li {
+            margin-bottom: 20px;
+
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .separator {
+            border-bottom: 1px dashed #dfe2e5;
+            margin-bottom: 2px;
+            margin-top: 5px;
+        }
+
+        .link {
+            border: 2px solid #dfe2e5;
+            line-height: 30px;
+            color: #2F4F4F;
+            display: inline-block;
+            width: 198px;
+            padding: 0px 40px 0px 11px;
+            margin-top: 5px;
+        }
+
+        .url {
+            text-decoration: none;
+            width: 240px;
+            min-width: 240px;
+            height: auto;
+            font-weight: lighter;
+            color: #2F4F4F;
+
+
+        }
+
+        .url:hover {
+            color: red;
+        }
+
+        .go_top {
+            float: right;
+            position: fixed;
+            bottom: 7%;
+            right: 5.3%;
+
+        }
+
+        .go_top a:link {
+            font-size: 20px;
+            color: #2C3E50;
+            text-decoration: none;
+        }
+
+        .go_top a:visited {
+            font-size: 20px;
+            color: #2C3E50;
+            text-decoration: none;
+        }
+
+        .go_top a:hover {
+            font-size: 20px;
+            color: #999999;
+            text-decoration: underline;
+        }
+
+        .option:hover {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 1s ease;
+            background-color: #00ffff;
+
+        }
+
+        .option {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 1s ease;
+            background-color: #d2e9ff;
+
+        }
+
+    </style>
+
+    <script>
+
+    </script>
+</head>
+<body>
+<!--整个导航页面开始-->
+<div id="app">
+
+    <!--    标题块开始-->
+    <div id="header">
+        <!--        网站标题开始-->
+        <img id="logo" src="/static/logo.png" border="0" alt="云嘉云计算">
+        <div id="title">
+            <span>{{ web_site_name }}</span>
+        </div>
+        <div style="clear: both"></div>
+        <!--        网站标题结束-->
+        <!--        管理员登录按钮开始-->
+        <div id="login">
+            <span class="login-span button">管理员登录</span>
+        </div>
+
+        <!--        管理员登录按钮结束-->
+
+    </div>
+    <!--    标题块结束-->
+
+    <!--    数据块开始-->
+    <div id="body">
+        <!--        导航栏开始-->
+        <div id="menu">
+            <!--            导航栏内容开始-->
+            <ul id="menu-content">
+                {% for c_row in web_class %}
+                    <li>
+
+                        <a id="web_class" onclick="Display({{ c_row.cid }})" class="menu button"
+                           data-cid="{{ c_row.cid }}">
+                            {{ c_row.class_name }}
+                            <div id='test' class="xs">
+                                <div class="xiao"></div>
+                                <ul>
+                                    {% for o_row in web_class_obj %}
+                                        {% if o_row.web_class_id == c_row.cid %}
+                                            <li class="option">{{ o_row.obj_name }}-{{ o_row.get_obj_environment_display }}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </a>
+
+                    </li>
+                {% endfor %}
+            </ul>
+            <!--            导航栏内容结束-->
+        </div>
+        <!--        菜单1网址内容开始-->
+        {% for c_row in web_class %}
+            <div class="website">
+                <ul id={{ c_row.cid }}>
+                    {% for o_row in web_class_obj %}
+                        <li id={{ o_row.oid }}>
+                            <span>{{ o_row.obj_name }}-{{ o_row.get_obj_environment_display }}</span>
+                            <div class="separator"></div>
+                            {% for s_row in web_site %}
+                                <div id={{ s_row.id }} class="link"><a class="url"
+                                                                       href={{ s_row.site_url }}>{{ s_row.site_name }}</a>
+                                </div>
+                            {% endfor %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <!--            返回顶部开始-->
+                <div class="go_top"><a href='#{{ c_row.cid }}'><img style="opacity: 1" src="/static/go_top2.png"
+                                                                    height="38"
+                                                                    border="0"
+                                                                    alt=""></a>
+                </div>
+                <!--            返回顶部结束-->
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+<script src="/static/jquery.js"></script>
+<script>
+    // 点击切换导航菜单网址,将当前website的ul id传入函数
+    function Display(id) {
+        var content = document.getElementsByClassName("website")
+        for (var i = 0; i < content.length; i++) {
+            content[i].classList.add('hide')
+        }
+
+        var curr_content = document.getElementById(id)
+        curr_content.parentElement.classList.remove('hide')
+    }
+
+    //jquery做乘法
+    function accMul(arg1, arg2) {
+        var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+        try {
+            m += s1.split(".")[1].length
+        } catch (e) {
+        }
+        try {
+            m += s2.split(".")[1].length
+        } catch (e) {
+        }
+        return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
+    }
+
+    //根据当前web_class_obj个数定义下拉框高度
+    $('#menu-content a').hover(function () {
+        var count = $("#test").children("ul").children('li').length
+        var now_height = accMul(40, count)
+        $(this).find('.xs').css("height", now_height)
+
+    }, function () {
+        $(this).find('.xs').css("height", 0)
+
+    })
+
+
+</script>
+</body>
+</html>
