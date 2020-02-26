@@ -2,8 +2,6 @@
 网站导航系统
 
 
-![](https://img.shields.io/python/v3.8/drone.svg)
-
 项目概要
 ==
 
